@@ -13,24 +13,31 @@ namespace EscrevendoNoCelular.ConsoleApp
 
         public string RetornaQwerty(string fraseRecebida)
         {
-            for (int i = 0; i < fraseRecebida.Length; i++)
+            if (fraseRecebida.Length < 255)
             {
-                for (int j = 0; j <= 9; j++)
+                for (int i = 0; i < fraseRecebida.Length; i++)
                 {
-                    if (lista.ListaCaracteres[j].Contains(fraseRecebida[i]))
+                    for (int j = 0; j <= 9; j++)
                     {
-                        if (i > 0 && qwerty[qwerty.Length - 1].ToString().Equals(j.ToString()))
-                            qwerty += "_";
-                        for (int k = 0; k < lista.ListaCaracteres[j].IndexOf(fraseRecebida[i]); k++)
+                        if (lista.ListaCaracteres[j].Contains(fraseRecebida[i]))
                         {
-                            qwerty += j.ToString();
-                            continue;
+                            if (i > 0 && qwerty[qwerty.Length - 1].ToString().Equals(j.ToString()))
+                                qwerty += "_";
+                            for (int k = 0; k < lista.ListaCaracteres[j].IndexOf(fraseRecebida[i]); k++)
+                            {
+                                qwerty += j.ToString();
+                                continue;
+                            }
+                            if (j == 0)
+                                qwerty += j.ToString();
                         }
-                        if (j == 0)
-                            qwerty += j.ToString();
                     }
                 }
             }
+            else
+                qwerty = "ERRO : PASSOU DOS LIMITES DE CARACTERES!";
+
+
             return qwerty;
         }
     }
