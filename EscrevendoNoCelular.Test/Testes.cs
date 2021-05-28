@@ -69,5 +69,10 @@ namespace EscrevendoNoCelular.Test
         {
             Assert.AreEqual("77773367_7773302_222337777_777766606660366656667889999_9999555337777", transforma.RetornaQwerty("SEMPRE ACESSO O DOJOPUZZLES"));
         }
+        [TestMethod]
+        public void Teste()
+        {
+            Assert.AreEqual("2_22_2223_33_3334", transforma.RetornaQwerty("ABCDEFG"));
+        }
     }
 }
